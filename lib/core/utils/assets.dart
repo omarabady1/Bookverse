@@ -1,4 +1,5 @@
 class AssetsData
 {
-  static const logo = 'assets/images/logo.png';
+  static const logo = 'assets/images/app_logo.png';
+  static const fontFamily = 'Share Tech';
 }
