@@ -7,7 +7,7 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
           SizedBox(
@@ -25,20 +25,20 @@ class BestSellerItem extends StatelessWidget {
                   'Harry Potter and the Goblet of Fire',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: Styles.bookTitle,
+                  style: Styles.sectra20,
                 ),
               ),
-              Text('J.K. Rowling', style: Styles.titleSmall),
+              Text('J.K. Rowling', style: Styles.title12),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('19.99\$', style: Styles.bookTitle,),
+                    Text('19.99\$', style: Styles.sectra20,),
                     Row(
                       children: [
-                        Icon(Icons.star, color: Color(0xffFFD700)),
-                        Text('4.8', style: Styles.bookTitleSmall,),
+                        Icon(Icons.star, color: Color(0xffFFD700),size: 18,),
+                        Text(' 4.8', style: Styles.sectra16,),
                         SizedBox(width: 6),
                         Text('(2390)', style: TextStyle(color: Colors.grey),),
                       ],
