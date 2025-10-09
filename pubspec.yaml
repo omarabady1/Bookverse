@@ -61,6 +61,10 @@ flutter:
       fonts:
         - asset: assets/fonts/ShareTech-Regular.ttf
 
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

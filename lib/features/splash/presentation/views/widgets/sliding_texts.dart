@@ -17,7 +17,7 @@ class FirstSlidingText extends StatelessWidget {
           child: const Text(
             'Bookverse',
             style: TextStyle(
-              fontFamily: AssetsData.fontFamily,
+              fontFamily: AssetsData.shareTech,
               fontSize: 32,
               color: Color(0xffc04a65),
             ),
@@ -43,7 +43,7 @@ class SecondSlidingText extends StatelessWidget {
           scale: slidingAnimation2,
           child: const Text(
             'Read the Universe',
-            style: TextStyle(fontFamily: AssetsData.fontFamily, fontSize: 32),
+            style: TextStyle(fontFamily: AssetsData.shareTech, fontSize: 32),
             textAlign: TextAlign.center,
           ),
         );
