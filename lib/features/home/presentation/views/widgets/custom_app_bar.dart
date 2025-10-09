@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
               const Text(
                 'Bookverse',
                 style: TextStyle(
-                  fontFamily: AssetsData.fontFamily,
+                  fontFamily: AssetsData.shareTech,
                   fontSize: 28,
                   color: Color(0xffc04a65),
                 ),
