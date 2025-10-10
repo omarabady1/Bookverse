@@ -1,7 +1,5 @@
-import 'package:bookly/features/splash/presentation/views/splash_view.dart';
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import 'constants.dart';
 
 void main() {
@@ -13,10 +11,10 @@ class Bookverse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      routerConfig: AppRouter.router,
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
-      home: SplashView(),
     );
   }
 }
