@@ -11,10 +11,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 14, right: 14, left: 14),
-          child: CustomAppBar(),
-        ),
+        const CustomAppBar(),
         Expanded(
           child: CustomScrollView(
             slivers: [

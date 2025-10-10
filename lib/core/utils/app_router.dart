@@ -1,8 +1,8 @@
 import 'package:bookly/core/utils/transitions.dart';
 import 'package:bookly/features/home/presentation/views/homeview.dart';
-import 'package:bookly/features/home/presentation/views/widgets/book_details_view_body.dart';
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/home/presentation/views/book_details_view.dart';
 
 abstract class AppRouter {
   static const kHomeViewPath = '/homeView';
@@ -27,7 +27,7 @@ abstract class AppRouter {
         pageBuilder: (context, state) {
           return CustomTransitions.slidLeftTransition(
             state,
-            const BookDetailsViewBody(),
+            const BookDetailsView(),
           );
         },
       ),
