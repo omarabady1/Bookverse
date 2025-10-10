@@ -26,13 +26,13 @@ class HomeViewBody extends StatelessWidget {
                       height: 42,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
+                      padding: const EdgeInsets.only(left: 24.0),
                       child: const Text('Best Seller', style: Styles.title18),
                     ),
                   ],
                 ),
               ),
-              BestSellerSliverList()
+              BestSellerSliverList(),
             ],
           ),
         ),
