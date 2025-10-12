@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'custom_play_button.dart';
 
-class ListviewBookItem extends StatelessWidget {
-  const ListviewBookItem({super.key});
+class HorizontalListBookItem extends StatelessWidget {
+  const HorizontalListBookItem({super.key});
 
   @override
   Widget build(BuildContext context) {

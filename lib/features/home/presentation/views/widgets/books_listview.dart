@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'listview_book_item.dart';
+import 'horizontal_listview_book_item.dart';
 
 class BooksListView extends StatelessWidget {
   const BooksListView({super.key});
@@ -13,7 +13,7 @@ class BooksListView extends StatelessWidget {
         separatorBuilder: (context, index) => SizedBox(width: 12),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return ListviewBookItem();
+          return HorizontalListBookItem();
         },
         itemCount: 13,
       ),

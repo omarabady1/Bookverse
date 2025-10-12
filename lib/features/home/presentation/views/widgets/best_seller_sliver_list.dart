@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'best_seller_list_item.dart';
+import 'vertical_listview_book_item.dart';
 
 class BestSellerSliverList extends StatelessWidget {
   const BestSellerSliverList({super.key});
@@ -9,7 +9,7 @@ class BestSellerSliverList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-        (context, index) => BestSellerItem(),
+        (context, index) => VerticalListBookItem(),
         childCount: 10,
       ),
     );

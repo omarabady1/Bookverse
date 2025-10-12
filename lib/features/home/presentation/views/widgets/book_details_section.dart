@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
-import 'best_seller_list_item.dart';
+import 'vertical_listview_book_item.dart';
 import 'custom_button.dart';
 
 class BookDetailsSection extends StatelessWidget {
