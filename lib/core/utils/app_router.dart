@@ -1,5 +1,6 @@
 import 'package:bookly/core/utils/transitions.dart';
 import 'package:bookly/features/home/presentation/views/homeview.dart';
+import 'package:bookly/features/search/presentation/views/search_view.dart';
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/home/presentation/views/book_details_view.dart';
@@ -7,6 +8,7 @@ import '../../features/home/presentation/views/book_details_view.dart';
 abstract class AppRouter {
   static const kHomeViewPath = '/homeView';
   static const kBookDetailsViewPath = '/bookDetailsView';
+  static const kSearchViewPath = '/searchView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -28,6 +30,15 @@ abstract class AppRouter {
           return CustomTransitions.slidLeftTransition(
             state,
             const BookDetailsView(),
+          );
+        },
+      ),
+      GoRoute(
+        path: kSearchViewPath,
+        pageBuilder: (context, state) {
+          return CustomTransitions.slidLeftTransition(
+            state,
+            const SearchView(),
           );
         },
       ),
