@@ -14,7 +14,7 @@ class RecommendedBooksSection extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 24.0),
             child: Text(
-              'You can also like',
+              'You may also like',
               style: Styles.title18.copyWith(fontSize: 14),
             ),
           ),

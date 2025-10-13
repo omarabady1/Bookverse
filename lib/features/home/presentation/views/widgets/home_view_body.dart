@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'best_seller_sliver_list.dart';
+import 'newest_books_sliver_list.dart';
 import 'books_listview.dart';
 import 'custom_app_bar.dart';
 
@@ -27,12 +27,12 @@ class HomeViewBody extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 24.0),
-                      child: const Text('Best Seller', style: Styles.title18),
+                      child: const Text('Newest', style: Styles.title18),
                     ),
                   ],
                 ),
               ),
-              BestSellerSliverList(),
+              NewestBooksSliverList(),
             ],
           ),
         ),
