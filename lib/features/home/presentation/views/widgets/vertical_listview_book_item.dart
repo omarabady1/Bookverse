@@ -24,11 +24,8 @@ class VerticalListBookItem extends StatelessWidget {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.2,
-                child: ClipRRect(
-                  borderRadius: BorderRadiusGeometry.circular(12),
-                  child: CustomNetworkImage(
-                    'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=2&source=gbs_api',
-                  ),
+                child: CustomNetworkImage(
+                  'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=2&source=gbs_api',
                 ),
               ),
               SizedBox(width: 34),

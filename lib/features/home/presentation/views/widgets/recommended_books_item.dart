@@ -7,11 +7,8 @@ class RecommendedBooksItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadiusGeometry.circular(12),
-      child: CustomNetworkImage(
-        'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=2&source=gbs_api',
-      ),
+    return CustomNetworkImage(
+      'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=2&source=gbs_api',
     );
   }
 }

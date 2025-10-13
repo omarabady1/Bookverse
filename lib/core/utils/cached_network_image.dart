@@ -8,12 +8,15 @@ class CustomNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imgUrl,
-      placeholder: (context, _) => Center(
-        child: CircularProgressIndicator(backgroundColor: Color(0xffd65158)),
+    return ClipRRect(
+      borderRadius: BorderRadiusGeometry.circular(8),
+      child: CachedNetworkImage(
+        imageUrl: imgUrl,
+        placeholder: (context, _) => Center(
+          child: CircularProgressIndicator(backgroundColor: Color(0xffd65158)),
+        ),
+        errorWidget: (context, url, error) => Center(child: Icon(Icons.error)),
       ),
-      errorWidget: (context, url, error) => Center(child: Icon(Icons.error)),
     );
   }
 }

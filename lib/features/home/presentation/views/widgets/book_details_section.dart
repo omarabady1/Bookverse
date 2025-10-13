@@ -11,13 +11,10 @@ class BookDetailsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadiusGeometry.circular(12),
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.4,
-            child: CustomNetworkImage(
-              'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=4&source=gbs_api',
-            ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.4,
+          child: CustomNetworkImage(
+            'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=4&source=gbs_api',
           ),
         ),
         SizedBox(height: 40),

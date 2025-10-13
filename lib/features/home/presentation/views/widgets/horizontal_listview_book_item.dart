@@ -10,11 +10,8 @@ class HorizontalListBookItem extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadiusGeometry.circular(12),
-          child: CustomNetworkImage(
-            'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=4&source=gbs_api',
-          ),
+        CustomNetworkImage(
+          'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=4&source=gbs_api',
         ),
         Padding(padding: const EdgeInsets.all(8.0), child: CustomPlayButton()),
       ],
