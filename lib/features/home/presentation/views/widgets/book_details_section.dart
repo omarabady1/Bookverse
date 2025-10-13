@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 import 'vertical_listview_book_item.dart';
@@ -10,8 +11,16 @@ class BookDetailsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset('assets/images/book_cover.png'),
-        SizedBox(height: 43),
+        ClipRRect(
+          borderRadius: BorderRadiusGeometry.circular(12),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.4,
+            child: CustomNetworkImage(
+              'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=4&source=gbs_api',
+            ),
+          ),
+        ),
+        SizedBox(height: 40),
         Text('The Jungle Book', style: Styles.sectra20.copyWith(fontSize: 30)),
         SizedBox(height: 6),
         Text(

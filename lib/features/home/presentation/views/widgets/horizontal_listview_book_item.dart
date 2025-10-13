@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'custom_play_button.dart';
 
@@ -9,11 +10,13 @@ class HorizontalListBookItem extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
-        Image.asset('assets/images/book_cover.png'),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CustomPlayButton(),
+        ClipRRect(
+          borderRadius: BorderRadiusGeometry.circular(12),
+          child: CustomNetworkImage(
+            'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=4&source=gbs_api',
+          ),
         ),
+        Padding(padding: const EdgeInsets.all(8.0), child: CustomPlayButton()),
       ],
     );
   }

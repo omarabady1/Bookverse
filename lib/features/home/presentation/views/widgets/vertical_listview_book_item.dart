@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/app_router.dart';
+import 'package:bookly/core/utils/cached_network_image.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -23,7 +24,12 @@ class VerticalListBookItem extends StatelessWidget {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.2,
-                child: Image.asset('assets/images/book_cover.png'),
+                child: ClipRRect(
+                  borderRadius: BorderRadiusGeometry.circular(12),
+                  child: CustomNetworkImage(
+                    'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=2&source=gbs_api',
+                  ),
+                ),
               ),
               SizedBox(width: 34),
               Column(
