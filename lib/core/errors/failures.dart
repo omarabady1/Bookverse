@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 
-abstract class Failure {}
-
-class ServerFailure implements Failure {
-  ServerFailure(this.errorMessage);
-
+abstract class Failure {
   final String errorMessage;
+  const Failure(this.errorMessage);
+}
 
+class ServerFailure extends Failure {
+  ServerFailure(super.errorMessage);
   factory ServerFailure.fromDioError(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
@@ -30,7 +30,7 @@ class ServerFailure implements Failure {
         );
       case DioExceptionType.unknown:
         return ServerFailure('Unknown Error, Please Try Again');
-      }
+    }
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
