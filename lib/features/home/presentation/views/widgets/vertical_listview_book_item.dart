@@ -1,11 +1,14 @@
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/cached_network_image.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class VerticalListBookItem extends StatelessWidget {
-  const VerticalListBookItem({super.key});
+  const VerticalListBookItem(this.book, {super.key});
+
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,8 @@ class VerticalListBookItem extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.2,
                 child: CustomNetworkImage(
-                  'https://books.google.com/books/content?id=etukl7GfrxQC&printsec=frontcover&img=1&zoom=2&source=gbs_api',
+                  book.volumeInfo?.imageLinks?.thumbnail ??
+                      'https://thumbs.dreamstime.com/b/grunge-blue-not-available-word-round-rubber-seal-stamp-white-background-162738148.jpg?w=768',
                 ),
               ),
               SizedBox(width: 34),
@@ -36,20 +40,33 @@ class VerticalListBookItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      'Harry Potter and the Goblet of Fire',
+                      book.volumeInfo!.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.sectra20,
                     ),
                   ),
-                  Text('J.K. Rowling', style: Styles.title12),
+                  SizedBox(height: 8),
+                  book.volumeInfo!.authors!.isNotEmpty
+                      ? Text(book.volumeInfo!.authors!.first)
+                      : Text(''),
+                  SizedBox(height: 8),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('19.99\$', style: Styles.sectra20),
-                        BookRating(),
+                        Text(
+                          //book.saleInfo!.price!,
+                          'Free',
+                          style: Styles.title18,
+                        ),
+                        //BookRating(book),
+                        //The API doesn't have a book rating end point currently
+                        Text(
+                          '${book.volumeInfo!.pageCount!} pages',
+                          style: Styles.title12,
+                        ),
                       ],
                     ),
                   ),
@@ -64,8 +81,8 @@ class VerticalListBookItem extends StatelessWidget {
 }
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
+  const BookRating(this.book, {super.key});
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Row(

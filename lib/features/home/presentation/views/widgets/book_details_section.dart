@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/cached_network_image.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 import 'vertical_listview_book_item.dart';
@@ -25,7 +26,7 @@ class BookDetailsSection extends StatelessWidget {
           style: Styles.title18.copyWith(color: Colors.grey),
         ),
         SizedBox(height: 16),
-        BookRating(),
+        BookRating(BookModel()),
         SizedBox(height: 37),
         CustomButton(),
       ],

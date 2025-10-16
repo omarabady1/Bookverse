@@ -1,23 +1,32 @@
 class BookModel {
   BookModel({
-      this.kind, 
-      this.id, 
-      this.etag, 
-      this.selfLink, 
-      this.volumeInfo, 
-      this.saleInfo, 
-      this.accessInfo, 
-      this.searchInfo,});
+    this.kind,
+    this.id,
+    this.etag,
+    this.selfLink,
+    this.volumeInfo,
+    this.saleInfo,
+    this.accessInfo,
+    this.searchInfo,
+  });
 
   BookModel.fromJson(dynamic json) {
     kind = json['kind'];
     id = json['id'];
     etag = json['etag'];
     selfLink = json['selfLink'];
-    volumeInfo = json['volumeInfo'] != null ? VolumeInfo.fromJson(json['volumeInfo']) : null;
-    saleInfo = json['saleInfo'] != null ? SaleInfo.fromJson(json['saleInfo']) : null;
-    accessInfo = json['accessInfo'] != null ? AccessInfo.fromJson(json['accessInfo']) : null;
-    searchInfo = json['searchInfo'] != null ? SearchInfo.fromJson(json['searchInfo']) : null;
+    volumeInfo = json['volumeInfo'] != null
+        ? VolumeInfo.fromJson(json['volumeInfo'])
+        : null;
+    saleInfo = json['saleInfo'] != null
+        ? SaleInfo.fromJson(json['saleInfo'])
+        : null;
+    accessInfo = json['accessInfo'] != null
+        ? AccessInfo.fromJson(json['accessInfo'])
+        : null;
+    searchInfo = json['searchInfo'] != null
+        ? SearchInfo.fromJson(json['searchInfo'])
+        : null;
   }
   String? kind;
   String? id;
@@ -48,12 +57,10 @@ class BookModel {
     }
     return map;
   }
-
 }
 
 class SearchInfo {
-  SearchInfo({
-      this.textSnippet,});
+  SearchInfo({this.textSnippet});
 
   SearchInfo.fromJson(dynamic json) {
     textSnippet = json['textSnippet'];
@@ -65,21 +72,21 @@ class SearchInfo {
     map['textSnippet'] = textSnippet;
     return map;
   }
-
 }
 
 class AccessInfo {
   AccessInfo({
-      this.country, 
-      this.viewability, 
-      this.embeddable, 
-      this.publicDomain, 
-      this.textToSpeechPermission, 
-      this.epub, 
-      this.pdf, 
-      this.webReaderLink, 
-      this.accessViewStatus, 
-      this.quoteSharingAllowed,});
+    this.country,
+    this.viewability,
+    this.embeddable,
+    this.publicDomain,
+    this.textToSpeechPermission,
+    this.epub,
+    this.pdf,
+    this.webReaderLink,
+    this.accessViewStatus,
+    this.quoteSharingAllowed,
+  });
 
   AccessInfo.fromJson(dynamic json) {
     country = json['country'];
@@ -122,13 +129,10 @@ class AccessInfo {
     map['quoteSharingAllowed'] = quoteSharingAllowed;
     return map;
   }
-
 }
 
 class Pdf {
-  Pdf({
-      this.isAvailable, 
-      this.acsTokenLink,});
+  Pdf({this.isAvailable, this.acsTokenLink});
 
   Pdf.fromJson(dynamic json) {
     isAvailable = json['isAvailable'];
@@ -143,12 +147,10 @@ class Pdf {
     map['acsTokenLink'] = acsTokenLink;
     return map;
   }
-
 }
 
 class Epub {
-  Epub({
-      this.isAvailable,});
+  Epub({this.isAvailable});
 
   Epub.fromJson(dynamic json) {
     isAvailable = json['isAvailable'];
@@ -160,23 +162,23 @@ class Epub {
     map['isAvailable'] = isAvailable;
     return map;
   }
-
 }
 
 class SaleInfo {
-  SaleInfo({
-      this.country, 
-      this.saleability, 
-      this.isEbook,});
+  SaleInfo({this.country, this.saleability, this.isEbook});
 
   SaleInfo.fromJson(dynamic json) {
     country = json['country'];
     saleability = json['saleability'];
     isEbook = json['isEbook'];
+    price = json['listPrice'] != null
+        ? '${json['listPrice']['amount'].toString()} £E'
+        : 'n/a';
   }
   String? country;
   String? saleability;
   bool? isEbook;
+  String? price;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -185,30 +187,30 @@ class SaleInfo {
     map['isEbook'] = isEbook;
     return map;
   }
-
 }
 
 class VolumeInfo {
   VolumeInfo({
-      this.title, 
-      this.authors, 
-      this.publisher, 
-      this.publishedDate, 
-      this.description, 
-      this.industryIdentifiers, 
-      this.readingModes, 
-      this.pageCount, 
-      this.printType, 
-      this.categories, 
-      this.maturityRating, 
-      this.allowAnonLogging, 
-      this.contentVersion, 
-      this.panelizationSummary, 
-      this.imageLinks, 
-      this.language, 
-      this.previewLink, 
-      this.infoLink, 
-      this.canonicalVolumeLink,});
+    this.title,
+    this.authors,
+    this.publisher,
+    this.publishedDate,
+    this.description,
+    this.industryIdentifiers,
+    this.readingModes,
+    this.pageCount,
+    this.printType,
+    this.categories,
+    this.maturityRating,
+    this.allowAnonLogging,
+    this.contentVersion,
+    this.panelizationSummary,
+    this.imageLinks,
+    this.language,
+    this.previewLink,
+    this.infoLink,
+    this.canonicalVolumeLink,
+  });
 
   VolumeInfo.fromJson(dynamic json) {
     title = json['title'];
@@ -222,15 +224,23 @@ class VolumeInfo {
         industryIdentifiers?.add(IndustryIdentifiers.fromJson(v));
       });
     }
-    readingModes = json['readingModes'] != null ? ReadingModes.fromJson(json['readingModes']) : null;
+    readingModes = json['readingModes'] != null
+        ? ReadingModes.fromJson(json['readingModes'])
+        : null;
     pageCount = json['pageCount'];
     printType = json['printType'];
-    categories = json['categories'] != null ? json['categories'].cast<String>() : [];
+    categories = json['categories'] != null
+        ? json['categories'].cast<String>()
+        : [];
     maturityRating = json['maturityRating'];
     allowAnonLogging = json['allowAnonLogging'];
     contentVersion = json['contentVersion'];
-    panelizationSummary = json['panelizationSummary'] != null ? PanelizationSummary.fromJson(json['panelizationSummary']) : null;
-    imageLinks = json['imageLinks'] != null ? ImageLinks.fromJson(json['imageLinks']) : null;
+    panelizationSummary = json['panelizationSummary'] != null
+        ? PanelizationSummary.fromJson(json['panelizationSummary'])
+        : null;
+    imageLinks = json['imageLinks'] != null
+        ? ImageLinks.fromJson(json['imageLinks'])
+        : null;
     language = json['language'];
     previewLink = json['previewLink'];
     infoLink = json['infoLink'];
@@ -264,7 +274,9 @@ class VolumeInfo {
     map['publishedDate'] = publishedDate;
     map['description'] = description;
     if (industryIdentifiers != null) {
-      map['industryIdentifiers'] = industryIdentifiers?.map((v) => v.toJson()).toList();
+      map['industryIdentifiers'] = industryIdentifiers
+          ?.map((v) => v.toJson())
+          .toList();
     }
     if (readingModes != null) {
       map['readingModes'] = readingModes?.toJson();
@@ -287,13 +299,10 @@ class VolumeInfo {
     map['canonicalVolumeLink'] = canonicalVolumeLink;
     return map;
   }
-
 }
 
 class ImageLinks {
-  ImageLinks({
-      this.smallThumbnail, 
-      this.thumbnail,});
+  ImageLinks({this.smallThumbnail, this.thumbnail});
 
   ImageLinks.fromJson(dynamic json) {
     smallThumbnail = json['smallThumbnail'];
@@ -308,13 +317,10 @@ class ImageLinks {
     map['thumbnail'] = thumbnail;
     return map;
   }
-
 }
 
 class PanelizationSummary {
-  PanelizationSummary({
-      this.containsEpubBubbles, 
-      this.containsImageBubbles,});
+  PanelizationSummary({this.containsEpubBubbles, this.containsImageBubbles});
 
   PanelizationSummary.fromJson(dynamic json) {
     containsEpubBubbles = json['containsEpubBubbles'];
@@ -329,13 +335,10 @@ class PanelizationSummary {
     map['containsImageBubbles'] = containsImageBubbles;
     return map;
   }
-
 }
 
 class ReadingModes {
-  ReadingModes({
-      this.text, 
-      this.image,});
+  ReadingModes({this.text, this.image});
 
   ReadingModes.fromJson(dynamic json) {
     text = json['text'];
@@ -350,13 +353,10 @@ class ReadingModes {
     map['image'] = image;
     return map;
   }
-
 }
 
 class IndustryIdentifiers {
-  IndustryIdentifiers({
-      this.type, 
-      this.identifier,});
+  IndustryIdentifiers({this.type, this.identifier});
 
   IndustryIdentifiers.fromJson(dynamic json) {
     type = json['type'];
@@ -371,5 +371,4 @@ class IndustryIdentifiers {
     map['identifier'] = identifier;
     return map;
   }
-
 }

@@ -12,7 +12,7 @@ class HorizontalListBookItem extends StatelessWidget {
       alignment: Alignment.bottomRight,
       children: [
         CustomNetworkImage(
-          book.volumeInfo?.imageLinks!.thumbnail?.replaceAll('zoom=1', 'zoom=3'),
+          book.volumeInfo!.imageLinks!.thumbnail?.replaceAll('zoom=1', 'zoom=3'),
         ),
         Padding(padding: const EdgeInsets.all(8.0), child: CustomPlayButton()),
       ],

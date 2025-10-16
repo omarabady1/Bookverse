@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../home/presentation/views/widgets/vertical_listview_book_item.dart';
@@ -29,7 +30,7 @@ class SearchResultList extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         padding: EdgeInsets.zero,
-        itemBuilder: (context, index) => VerticalListBookItem(),
+        itemBuilder: (context, index) => VerticalListBookItem(BookModel()),
         itemCount: 10,
       ),
     );
