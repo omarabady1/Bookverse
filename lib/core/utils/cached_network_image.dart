@@ -15,10 +15,7 @@ class CustomNetworkImage extends StatelessWidget {
         child: CachedNetworkImage(
           fit: BoxFit.fill,
           imageUrl: imgUrl ?? 'https://thumbs.dreamstime.com/b/grunge-blue-not-available-word-round-rubber-seal-stamp-white-background-162738148.jpg?w=768',
-          placeholder: (context, _) => Center(
-            child: CircularProgressIndicator(backgroundColor: Color(0xffd65158)),
-          ),
-          errorWidget: (context, url, error) => Center(child: Icon(Icons.error)),
+          errorWidget: (context, url, error) => Center(child: Icon(Icons.error_outline, color: Color(0xffd65158),)),
         ),
       ),
     );

@@ -28,7 +28,10 @@ class BooksListView extends StatelessWidget {
             child: Text(state.errorMessage, style: Styles.sectra20),
           );
         } else {
-          return Center(child: CircularProgressIndicator());
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.25,
+            child: Center(child: CircularProgressIndicator()),
+          );
         }
       },
     );
