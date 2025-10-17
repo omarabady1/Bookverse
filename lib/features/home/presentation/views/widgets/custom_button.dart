@@ -1,10 +1,11 @@
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
-
+  const CustomButton(this.book,{super.key});
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -27,7 +28,7 @@ class CustomButton extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  '19.99\$',
+                  'Free',
                   style: Styles.title18.copyWith(
                     fontSize: 16,
                     color: Colors.black,
