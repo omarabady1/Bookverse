@@ -1,3 +1,4 @@
+import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/cached_network_image.dart';
 import 'package:bookly/core/utils/styles.dart';
@@ -30,8 +31,7 @@ class VerticalListBookItem extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.2,
                 child: CustomNetworkImage(
-                  book.volumeInfo?.imageLinks?.thumbnail ??
-                      'https://thumbs.dreamstime.com/b/grunge-blue-not-available-word-round-rubber-seal-stamp-white-background-162738148.jpg?w=768',
+                  book.volumeInfo?.imageLinks?.thumbnail ?? kNotAvailableThumb,
                 ),
               ),
               SizedBox(width: 34),

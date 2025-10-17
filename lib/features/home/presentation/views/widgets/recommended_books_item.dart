@@ -1,3 +1,4 @@
+import 'package:bookly/constants.dart';
 import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,7 @@ class RecommendedBooksItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomNetworkImage(
-      book.volumeInfo!.imageLinks?.thumbnail ??
-          'https://thumbs.dreamstime.com/b/grunge-blue-not-available-word-round-rubber-seal-stamp-white-background-162738148.jpg?w=768',
+      book.volumeInfo!.imageLinks?.thumbnail ?? kNotAvailableThumb,
     );
   }
 }
