@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'newest_books_sliver_list.dart';
-import 'books_listview.dart';
+import 'featured_books_listview.dart';
 import 'custom_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {

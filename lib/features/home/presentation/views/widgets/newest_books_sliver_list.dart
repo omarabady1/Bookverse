@@ -1,7 +1,7 @@
-import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/utils/custom_error_widget.dart';
 import 'vertical_listview_book_item.dart';
 
 class NewestBooksSliverList extends StatelessWidget {
@@ -19,9 +19,7 @@ class NewestBooksSliverList extends StatelessWidget {
             ),
           );
         } else if (state is NewestBooksFailure) {
-          return Center(
-            child: Text(state.errorMessage, style: Styles.sectra20),
-          );
+          return SliverFillRemaining(child: CustomErrorWidget(state.errorMessage));
         } else {
           return SliverFillRemaining(
             child: Center(child: CircularProgressIndicator()),
