@@ -4,7 +4,6 @@ import '../../../../../core/utils/styles.dart';
 
 class RecommendedBooksSection extends StatelessWidget {
   const RecommendedBooksSection({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Column(
