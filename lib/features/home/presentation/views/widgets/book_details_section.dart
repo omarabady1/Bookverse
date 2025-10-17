@@ -24,6 +24,7 @@ class BookDetailsSection extends StatelessWidget {
           Text(
             book.volumeInfo!.title!,
             style: Styles.sectra20.copyWith(fontSize: 30),
+            textAlign: TextAlign.center,
           ),
           SizedBox(height: 6),
           Text(
@@ -33,6 +34,10 @@ class BookDetailsSection extends StatelessWidget {
             style: Styles.title18.copyWith(color: Colors.grey),
           ),
           SizedBox(height: 16),
+          Text(
+            '${book.volumeInfo!.pageCount!} pages',
+            style: Styles.title18.copyWith(color: Colors.white30),
+          ),
           //BookRating(BookModel()),
           SizedBox(height: 37),
           CustomButton(book),
