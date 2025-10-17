@@ -1,4 +1,5 @@
 import 'package:bookly/features/home/presentation/manager/featured_books_cubit/featured_books__cubit.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_horizontal_books_itme_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/custom_error_widget.dart';
@@ -30,7 +31,14 @@ class BooksListView extends StatelessWidget {
         } else {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.25,
-            child: Center(child: CircularProgressIndicator()),
+            child: ListView.separated(
+              separatorBuilder: (context, index) => SizedBox(width: 12),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return HorizontalListBookItemShimmer();
+              },
+              itemCount: 5,
+            ),
           );
         }
       },

@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/presentation/views/widgets/custom_newest_books_item_shimmer.dart';
 import 'package:bookly/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,8 +22,11 @@ class NewestBooksSliverList extends StatelessWidget {
         } else if (state is NewestBooksFailure) {
           return SliverFillRemaining(child: CustomErrorWidget(state.errorMessage));
         } else {
-          return SliverFillRemaining(
-            child: Center(child: CircularProgressIndicator()),
+          return SliverList(
+            delegate: SliverChildBuilderDelegate(
+                  (context, index) => NewestBooksItemShimmer(),
+              childCount: 5,
+            ),
           );
         }
       },
