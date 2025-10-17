@@ -16,7 +16,9 @@ class VerticalListBookItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: InkWell(
         onTap: () {
-          GoRouter.of(context).push(AppRouter.kBookDetailsViewPath);
+          GoRouter.of(
+            context,
+          ).push(AppRouter.kBookDetailsViewPath, extra: book);
         },
         splashColor: Colors.white.withValues(alpha: 0.1),
         highlightColor: Colors.white.withValues(alpha: 0.05),
