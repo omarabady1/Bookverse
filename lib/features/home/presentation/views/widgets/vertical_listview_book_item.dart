@@ -6,8 +6,8 @@ import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class VerticalListBookItem extends StatelessWidget {
-  const VerticalListBookItem(this.book, {super.key});
+class NewestBooksItem extends StatelessWidget {
+  const NewestBooksItem(this.book, {super.key});
 
   final BookModel book;
 

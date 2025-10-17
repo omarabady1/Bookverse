@@ -4,8 +4,8 @@ import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'custom_play_button.dart';
 
-class HorizontalListBookItem extends StatelessWidget {
-  const HorizontalListBookItem(this.book, {super.key});
+class FeaturedBookItem extends StatelessWidget {
+  const FeaturedBookItem(this.book, {super.key});
   final BookModel book;
   @override
   Widget build(BuildContext context) {

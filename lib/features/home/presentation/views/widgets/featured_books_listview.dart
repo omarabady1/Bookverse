@@ -19,7 +19,7 @@ class BooksListView extends StatelessWidget {
               separatorBuilder: (context, index) => SizedBox(width: 12),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return HorizontalListBookItem(state.books[index]);
+                return FeaturedBookItem(state.books[index]);
               },
               itemCount: state.books.length,
             ),

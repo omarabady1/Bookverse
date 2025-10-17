@@ -30,7 +30,7 @@ class SearchResultList extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         padding: EdgeInsets.zero,
-        itemBuilder: (context, index) => VerticalListBookItem(BookModel()),
+        itemBuilder: (context, index) => NewestBooksItem(BookModel()),
         itemCount: 10,
       ),
     );

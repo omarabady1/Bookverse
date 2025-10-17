@@ -15,7 +15,7 @@ class NewestBooksSliverList extends StatelessWidget {
         if (state is NewestBooksSuccess) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
-              (context, index) => VerticalListBookItem(state.books[index]),
+              (context, index) => NewestBooksItem(state.books[index]),
               childCount: state.books.length,
             ),
           );
