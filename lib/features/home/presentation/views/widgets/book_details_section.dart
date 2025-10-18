@@ -2,6 +2,7 @@ import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/cached_network_image.dart';
 import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
+import '../../../../../core/utils/custom_launch_url.dart';
 import '../../../../../core/utils/styles.dart';
 import 'custom_button.dart';
 
@@ -20,27 +21,32 @@ class BookDetailsSection extends StatelessWidget {
               book.volumeInfo!.imageLinks?.thumbnail ?? kNotAvailableThumb,
             ),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Text(
             book.volumeInfo!.title!,
             style: Styles.sectra20.copyWith(fontSize: 30),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 6),
+          const SizedBox(height: 6),
           Text(
             book.volumeInfo!.authors!.isNotEmpty
                 ? book.volumeInfo!.authors!.first
                 : '',
             style: Styles.title18.copyWith(color: Colors.grey),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text(
             '${book.volumeInfo!.pageCount!} pages',
             style: Styles.title18.copyWith(color: Colors.white30),
           ),
           //BookRating(BookModel()),
           SizedBox(height: 37),
-          CustomButton(book),
+          CustomButton(
+            text: book.volumeInfo!.previewLink != null ? 'Free Preview' : 'Not Available',
+            onPressed: () async {
+              await customLaunchUrl(context, book.volumeInfo!.previewLink);
+            },
+          ),
         ],
       ),
     );

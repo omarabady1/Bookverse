@@ -49,9 +49,16 @@ class NewestBooksItem extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8),
-                  book.volumeInfo!.authors!.isNotEmpty
-                      ? Text(book.volumeInfo!.authors!.first)
-                      : Text(''),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Text(
+                      book.volumeInfo!.authors!.isNotEmpty
+                          ? book.volumeInfo!.authors!.first
+                          : '',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                   SizedBox(height: 8),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
@@ -59,8 +66,7 @@ class NewestBooksItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          //book.saleInfo!.price!,
-                          'Free',
+                          book.volumeInfo!.previewLink != null ? 'Free Preview' : 'Not Available',
                           style: Styles.title18,
                         ),
                         //BookRating(book),
