@@ -2,8 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CustomPlayButton extends StatelessWidget {
-  const CustomPlayButton({super.key});
-
+  const CustomPlayButton({super.key, required this.onPressed});
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return ClipOval(
@@ -16,7 +16,7 @@ class CustomPlayButton extends StatelessWidget {
           child: InkWell(
             splashColor: Colors.white.withValues(alpha: 0.1),
             highlightColor: Colors.white.withValues(alpha: 0.2),
-            onTap: () {},
+            onTap: onPressed,
             child: SizedBox(
               width: 30,
               height: 30,
