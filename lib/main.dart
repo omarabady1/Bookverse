@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'constants.dart';
 
 void main() {
-  setupServiceLoctor();
+  setupServiceLocator();
   runApp(const Bookverse());
 }
 

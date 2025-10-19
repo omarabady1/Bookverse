@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
 
+class CustomSearchTextField extends StatelessWidget {
+  const CustomSearchTextField({super.key, required this.onPressed, required this.controller});
+  final VoidCallback onPressed;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: TextField(
+      child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           labelText: 'Search',
           labelStyle: const TextStyle(color: Color(0xff728582)),
@@ -23,17 +26,17 @@ class CustomSearchTextField extends StatelessWidget {
           suffixIcon: SizedBox(
             height: 55,
             child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0x30ffeded),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(12),
-                      bottomRight: Radius.circular(12),
-                    ),
+              onPressed: onPressed,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0x30ffeded),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(12),
+                    bottomRight: Radius.circular(12),
                   ),
                 ),
-                child: Icon(Icons.search, color: Colors.white,)
+              ),
+              child: Icon(Icons.search, color: Colors.white),
             ),
           ),
         ),

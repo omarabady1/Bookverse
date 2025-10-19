@@ -4,6 +4,8 @@ import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:bookly/features/home/data/repos/home_repo_impl.dart';
 import 'package:bookly/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/homeview.dart';
+import 'package:bookly/features/search/data/search_repo_impl.dart';
+import 'package:bookly/features/search/presentation/manager/search_view_cubit.dart';
 import 'package:bookly/features/search/presentation/views/search_view.dart';
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +49,11 @@ abstract class AppRouter {
         pageBuilder: (context, state) {
           return CustomTransitions.slidLeftTransition(
             state,
-            const SearchView(),
+            BlocProvider(
+              create: (context) =>
+                  SearchViewCubit(searchRepo: getIt.get<SearchRepoImpl>()),
+              child: const SearchView(),
+            ),
           );
         },
       ),
