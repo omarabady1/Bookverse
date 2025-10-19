@@ -9,7 +9,7 @@ class BookDetailsCustomAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 30, bottom: 16, right: 14, left: 14),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
             onPressed: () {
@@ -18,11 +18,11 @@ class BookDetailsCustomAppBar extends StatelessWidget {
             icon: Icon(Icons.close),
             color: Color(0xffc04a65),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.shopping_cart_outlined),
-            color: Color(0xfffc931c),
-          ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(Icons.shopping_cart_outlined),
+          //   color: Color(0xfffc931c),
+          // ),
         ],
       ),
     );
