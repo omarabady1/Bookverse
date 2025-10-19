@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key, required this.onPressed, required this.controller});
+  const CustomSearchTextField({super.key, required this.onPressed, required this.controller, required this.onChanged});
   final VoidCallback onPressed;
   final TextEditingController controller;
+  final Function(String) onChanged;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: TextFormField(
+        onChanged: onChanged,
         controller: controller,
         decoration: InputDecoration(
           labelText: 'Search',

@@ -19,4 +19,8 @@ class SearchViewCubit extends Cubit<SearchViewState> {
       },
     );
   }
+
+  void clearSearchResults() {
+    emit(SearchViewInitial());
+  }
 }
