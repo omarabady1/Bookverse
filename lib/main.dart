@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'constants.dart';
 
+//FUCK ISRAEL
+
 void main() {
   setupServiceLocator();
   runApp(const Bookverse());
