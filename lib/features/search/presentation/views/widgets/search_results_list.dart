@@ -14,26 +14,37 @@ class SearchResultList extends StatelessWidget {
     return BlocBuilder<SearchViewCubit, SearchViewState>(
       builder: (context, state) {
         if (state is SearchViewSuccess) {
-          return Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 22.0, bottom: 8),
-                  child: const Text('Search Results', style: Styles.title18),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    keyboardDismissBehavior:
-                        ScrollViewKeyboardDismissBehavior.onDrag,
-                    itemBuilder: (context, index) =>
-                        NewestBooksItem(state.books[index]),
-                    itemCount: state.books.length,
+          if (state.books.isNotEmpty) {
+            return Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 22.0, bottom: 8),
+                    child: const Text('Search Results', style: Styles.title18),
                   ),
+                  Expanded(
+                    child: ListView.builder(
+                      keyboardDismissBehavior:
+                          ScrollViewKeyboardDismissBehavior.onDrag,
+                      itemBuilder: (context, index) =>
+                          NewestBooksItem(state.books[index]),
+                      itemCount: state.books.length,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          } else {
+            return Expanded(
+              child: Center(
+                child: Text(
+                  'Couldn\'t find books with this title',
+                  style: Styles.title18.copyWith(color: Colors.grey),
                 ),
-              ],
-            ),
-          );
+              ),
+            );
+          }
         } else if (state is SearchViewFailure) {
           return Center(child: CustomErrorWidget(state.errorMessage));
         } else if (state is SearchViewLoading) {
@@ -47,7 +58,8 @@ class SearchResultList extends StatelessWidget {
                 ),
                 Expanded(
                   child: ListView.builder(
-                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                    keyboardDismissBehavior:
+                        ScrollViewKeyboardDismissBehavior.onDrag,
                     itemBuilder: (context, index) => NewestBooksItemShimmer(),
                     itemCount: 10,
                   ),
@@ -56,7 +68,14 @@ class SearchResultList extends StatelessWidget {
             ),
           );
         } else {
-          return Container();
+          return Expanded(
+            child: Center(
+              child: Text(
+                'Start typing to search',
+                style: Styles.title18.copyWith(color: Colors.grey),
+              ),
+            ),
+          );
         }
       },
     );

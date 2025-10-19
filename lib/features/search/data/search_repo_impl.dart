@@ -19,8 +19,10 @@ class SearchRepoImpl implements SearchRepo {
         'volumes?q=$search&orderBy=newest',
       );
       List<BookModel> bookList = [];
-      for (var item in data['items']) {
-        bookList.add(BookModel.fromJson(item));
+      if (data['items'] != null && data['items'] is List) {
+        for (var item in data['items']) {
+          bookList.add(BookModel.fromJson(item));
+        }
       }
       return right(bookList);
     } catch (e) {
