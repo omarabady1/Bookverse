@@ -43,7 +43,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           child: Image.asset(AssetsData.logo),
         ),
         FirstSlidingText(slidingAnimation1: slidingAnimation),
-        SecondSlidingText(slidingAnimation2: scaleAnimation),
+        //SecondSlidingText(slidingAnimation2: scaleAnimation),
       ],
     );
   }
@@ -84,7 +84,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 2), () {
       if(mounted) {
         GoRouter.of(context).go(AppRouter.kHomeViewPath );
       }

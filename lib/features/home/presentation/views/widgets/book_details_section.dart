@@ -36,7 +36,8 @@ class BookDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            '${book.volumeInfo!.pageCount!} pages',
+            book.volumeInfo!.pageCount! != 0?
+            '${book.volumeInfo!.pageCount!} pages' : '',
             style: Styles.title18.copyWith(color: Colors.white30),
           ),
           //BookRating(BookModel()),
