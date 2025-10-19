@@ -38,24 +38,26 @@ class _SearchViewBodyState extends State<SearchViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomSearchTextField(
-          onChanged: _onSearchChanged,
-          controller: searchController,
-          onPressed: () {
-            if (searchController.text.isNotEmpty && !searchController.text.startsWith(' ')) {
-              FocusScope.of(context).unfocus();
-              BlocProvider.of<SearchViewCubit>(
-                context,
-              ).fetchSearchResults(searchController.text);
-            } else {
-              BlocProvider.of<SearchViewCubit>(context).clearSearchResults();
-            }
-          },
-        ),
-        SearchResultList(),
-      ],
+    return SafeArea(
+      child: Column(
+        children: [
+          CustomSearchTextField(
+            onChanged: _onSearchChanged,
+            controller: searchController,
+            onPressed: () {
+              if (searchController.text.isNotEmpty && !searchController.text.startsWith(' ')) {
+                FocusScope.of(context).unfocus();
+                BlocProvider.of<SearchViewCubit>(
+                  context,
+                ).fetchSearchResults(searchController.text);
+              } else {
+                BlocProvider.of<SearchViewCubit>(context).clearSearchResults();
+              }
+            },
+          ),
+          SearchResultList(),
+        ],
+      ),
     );
   }
 }

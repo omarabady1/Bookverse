@@ -12,10 +12,14 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
-      var data = await apiService.get('volumes?q=subject:Computers&orderBy=newest');
+      var data = await apiService.get(
+        'volumes?q=subject:Computers&orderBy=newest',
+      );
       List<BookModel> bookList = [];
-      for (var item in data['items']) {
-        bookList.add(BookModel.fromJson(item));
+      if (data['items'] != null && data['items'] is List) {
+        for (var item in data['items']) {
+          bookList.add(BookModel.fromJson(item));
+        }
       }
       return right(bookList);
     } catch (e) {
@@ -31,8 +35,10 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get('volumes?q=subject:general');
       List<BookModel> bookList = [];
-      for (var item in data['items']) {
-        bookList.add(BookModel.fromJson(item));
+      if (data['items'] != null && data['items'] is List) {
+        for (var item in data['items']) {
+          bookList.add(BookModel.fromJson(item));
+        }
       }
       return right(bookList);
     } catch (e) {
@@ -50,8 +56,10 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get('volumes?q=subject:$category');
       List<BookModel> bookList = [];
-      for (var item in data['items']) {
-        bookList.add(BookModel.fromJson(item));
+      if (data['items'] != null && data['items'] is List) {
+        for (var item in data['items']) {
+          bookList.add(BookModel.fromJson(item));
+        }
       }
       return right(bookList);
     } catch (e) {
