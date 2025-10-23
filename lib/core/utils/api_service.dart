@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiService {
   final String _baseUrl = 'https://www.googleapis.com/books/v1/';
-  final _apiKey = 'AIzaSyA89hBcOejrJY1hcTSPgUdy3qnQoloplgE';
+  final _apiKey = dotenv.env['API_KEY'];
   final Dio dio;
 
   ApiService(this.dio);

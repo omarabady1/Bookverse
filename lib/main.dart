@@ -5,11 +5,13 @@ import 'package:bookly/features/home/presentation/manager/featured_books_cubit/f
 import 'package:bookly/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'constants.dart';
 
 //FUCK ISRAEL
 
-void main() {
+void main() async{
+  await dotenv.load(fileName: '.env');
   setupServiceLocator();
   runApp(const Bookverse());
 }
